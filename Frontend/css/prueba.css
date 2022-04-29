@@ -1,0 +1,173 @@
+.ventana{
+    background: rgb(33, 199, 47);
+    text-align: center;
+    padding: 33px;
+    border-radius: 22px;
+    position:absolute;
+    left: 585px;
+    top: 90px;
+    z-index: 1;
+    display: none;
+}
+
+#Upload{
+    border-radius: 22px;
+    position:absolute;
+    left: 440px;
+    top: 120px;
+    z-index: 2;
+    display: none;
+}
+
+.card{
+    border-radius: 20px;
+    background-color: #4e4caf;
+    color: white;
+}
+
+#cerrar{
+    position: absolute;
+    width: 1cm;
+    right: 1px;
+    top: 1px;
+}
+
+#cerrar:hover {
+    border-radius: 20px;
+    background-color: #ff0000;
+    color: white;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    place-items: center;
+    display: inline-flex;
+}
+
+textarea {
+    height: 15cm;
+    resize: none;
+    display: grid;
+}
+
+.jaja {
+    width: 100%;
+    height: 100%;
+    place-items: center;
+    display: grid;
+}
+
+#textAreaUno {
+    resize: none;
+}
+#textAreaDos {
+    resize: none;
+}
+
+#botonesVerticales {
+    place-items: center;
+    display: grid;
+    border: 20px solid rgba(255, 255, 255, 0.5);
+}
+
+.btnNav {
+    background-color: #f8f8f8;
+    border-color: #00000000;
+    color: #777;
+}
+.btnNav:hover {
+    background-color: #eee;
+    color: rgb(0, 0, 0);
+}
+
+#linav {
+    height: 50px;
+}
+
+.button1 {
+    background-color: white;
+    color: black;
+    border: 2px solid #4caf4f00;
+}
+.button1:hover {
+    background-color: #4e4caf;
+    color: white;
+}
+
+#titulo {
+    background-color: #4e4caf;
+    color: white;
+}
+
+#btnEnviar{
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #00ffa6;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+#btnEnviar span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+#btnEnviar span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+#btnEnviar:hover span {
+    padding-right: 25px;
+}
+#btnEnviar:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+#btnReset{
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #ff0033;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.4s;
+    cursor: pointer;
+    margin: 5px;
+}
+#btnReset span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.4s;
+}
+#btnReset span:after {
+    content: '\1F5D8';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.4s;
+}
+#btnReset:hover span {
+    padding-right: 25px;
+}
+#btnReset:hover span:after {
+    opacity: 1;
+    right: 0;
+}
