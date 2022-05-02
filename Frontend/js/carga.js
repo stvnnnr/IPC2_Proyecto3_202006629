@@ -14,8 +14,15 @@ function enviarArchivo(){
     headers: {
       "Content-Type": "application/json",
     },
-  }).then((res) => res.json()).catch(function (error) { console.log(error);});
-  getPacientes()
+  }).then(res => res.json())
+  .then(function(response){
+      console.log(response.status)
+      if (response.status = '200'){
+        getPacientes()
+      }
+
+  })
+  .catch(function (error) { console.log(error);});
 }
 
 
@@ -29,7 +36,7 @@ function getPacientes() {
     .then((res) => res.json())
     .then(function (response) {
       let data = response;
-      console.log("Si cargo papito")
+      console.log("Si se lleno el textArea 1 papito")
       document.getElementById('textAreaUno').value = data;
     })
     .catch(function (error) {
