@@ -111,7 +111,7 @@
                                 </div>
                                 <div class="btn-group-vertical" id="botonesVerticales">
                                     <button class="button" style="vertical-align:middle"
-                                        id="btnEnviar"><span>Enviar</span></button>
+                                        id="btnEnviar" onclick="procesar()"><span>Enviar</span></button>
                                     <button class="button" style="vertical-align:middle"
                                         id="btnReset"><span>Reiniciar</span></button>
                                 </div>
@@ -139,6 +139,8 @@
     <script>document.getElementById('canceladbt').addEventListener("click", pulsar, false);
         function pulsar() { document.getElementById("Upload").style.display = "None"; }</script>
     <script src="js/carga.js"></script>
+    <script src="js/envio.js"></script>
+    
 
 
 </body>

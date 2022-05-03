@@ -18,7 +18,7 @@ function enviarArchivo(){
   .then(function(response){
       console.log(response.status)
       if (response.status = '200'){
-        getPacientes()
+        getTextAreaUno()
       }
 
   })
@@ -26,7 +26,7 @@ function enviarArchivo(){
 }
 
 
-function getPacientes() {
+function getTextAreaUno() {
   fetch("http://localhost:5000/carga", {
     method: "GET",
     headers: {
