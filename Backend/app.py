@@ -154,6 +154,7 @@ def msj(letras):
             msj.setPorceNegativas(sentimiento[4])
             listaMensaje.append(msj)
     fechas = list(set(fechas))
+    fechas = sorted(fechas)
     listaEmpresas = list(set(listaEmpresas))
     return "Yep"
 
@@ -164,10 +165,14 @@ def FuncionDos(msj):
     contNegativas = 0
     contPositivas = 0
     for posi in Positivas:
+        posi = castear(posi)
+        msj = castear(msj)
         if posi in msj:
             contPositivas = contPositivas + 1
     
     for nega in Negativas:
+        nega = castear(nega)
+        msj = castear(msj)
         if nega in msj:
             contNegativas = contNegativas + 1
     
@@ -240,11 +245,12 @@ def procesar():
                 negix = 0
                 neutrix = 0
                 listaAlias = serv.getAlias()
+                nameUno = castear(serv.nombre)
                 name = serv.nombre
                 for men in listaMensaje:
                     if str(men.fecha) == str(date):
-                        msj = men.msjLimpio
-                        if name in msj:
+                        msj = castear(men.msjLimpio)
+                        if nameUno in msj:
                             totix = totix + 1
                             if men.getSentimiento() == "Positivo":
                                 posix = posix+1
@@ -253,7 +259,9 @@ def procesar():
                             else:
                                 neutri = neutri+1
                         for alix in listaAlias:
-                            if alix in msj:
+                            alixUno = castear(alix)
+
+                            if alixUno in msj:
                                 totix = totix + 1
                                 if men.getSentimiento() == "Positivo":
                                     posix = posix+1
@@ -274,6 +282,20 @@ def procesar():
         var = var + f'''\t\t\t</analisis>\n\t\t</respuesta>\n'''
     var = var + f'''\t</lista_respuestas>'''
     return "Yep"
+
+def castear(texto):
+    texto.replace("á","a")
+    texto.replace("é","e")
+    texto.replace("í","i")
+    texto.replace("ó","o")
+    texto.replace("ú","u")
+    texto.replace("Á","A")
+    texto.replace("É","E")
+    texto.replace("Í","I")
+    texto.replace("Ó","O")
+    texto.replace("Ú","U")
+    texto.lower()
+    return texto
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True)

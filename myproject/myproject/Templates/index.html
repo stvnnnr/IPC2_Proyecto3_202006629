@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <title>Principal</title>
-    <link rel="stylesheet" href="css/prueba.css">
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css" rel="stylesheet">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Alice|Open+Sans:400,300,700">
+    <link rel="stylesheet" href="{% static '/prueba.css' %}">
 </head>
 
 <body class="home">
@@ -25,7 +26,7 @@
 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="prueba.html" id="titulo">My App</a></li>
+                        <li class="active"><a href="" id="titulo">My App</a></li>
                         <li id="linav">
                             <div class="container"><button type="button" id="btnCarga" class="btnNav">Carga De
                                     Archivo</button></div>
@@ -34,7 +35,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Peticiones<b
                                     class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><button type="button" class="button button1" id="btnConsultar">Consultar
+                                <li><button type="button" class="button button1" id="btnConsultar" onclick="getProcesadoUno()">Consultar
                                         Datos</button></li>
                                 <li><button type="button" class="button button1" id="btnClasiFecha">Resumen
                                         clasificación por
@@ -91,9 +92,9 @@
                             <div class="jaja">
 
                                 <div class="ventana" id="vent">
-                                    <div id="cerrar"><img src="img/error.png" id="imgx" alt="" width="100%" height="100%"></div>
+                                    <div id="cerrar"><img src="{% static '/error.png' %}" id="imgx" alt="" width="100%" height="100%"></div>
                                     <div class="card" style="width: 25rem;">
-                                        <img src="img/profile.jpg" class="card-img-top" width="100%" height="100%">
+                                        <img src="{% static '/profile.jpg' %}" class="card-img-top" width="100%" height="100%">
                                         <div class="card-body">
                                             <p class="card-text">Wilber Steven Zúñiga Ruano</p>
                                             <p class="card-text">202006629</p>
@@ -138,8 +139,13 @@
         function pulsar() { document.getElementById("Upload").style.display = "block"; }</script>
     <script>document.getElementById('canceladbt').addEventListener("click", pulsar, false);
         function pulsar() { document.getElementById("Upload").style.display = "None"; }</script>
-    <script src="js/carga.js"></script>
-    <script src="js/envio.js"></script>
+    <script>document.getElementById('btnReset').addEventListener("click", pulsar, false);
+        function pulsar() {alert("Se Reinicio")
+                            document.getElementById('textAreaUno').value = "";
+                            document.getElementById('textAreaDos').value = ""; }</script>
+    <script src="{% static '/carga.js' %}"></script>
+    <script src="{% static '/envio.js' %}"></script>
+    <script src="{% static '/peticiones.js' %}"></script>
     
 
 
