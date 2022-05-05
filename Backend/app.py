@@ -4,7 +4,9 @@ from flask_cors import CORS, cross_origin
 from empresa import empresa
 from servicio import servicio
 from mensaje import mensajito
+from fpdf import FPDF
 import json
+import re
 global Positivas
 global Negativas
 global listaEmpresas
@@ -12,6 +14,7 @@ global listaMensaje
 global letras
 global fechas
 global var
+global varPDF
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -20,9 +23,9 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 #Metodo Inicial, comprobar Servidor
 @app.route("/")
 def index():
-    return("Hola bb")
+    return jsonify({"status": 200})
 
-#Metodo de carga y enviar informacion al text area 1
+# Metodo de carga y enviar informacion al text area 1
 @app.route('/carga', methods=['POST'])
 def cargaArchivo():
     global letras
@@ -43,7 +46,6 @@ def envioInfo():
 #Metodo procesar Info y enviar Info procesada
 @app.route('/procesar', methods=['POST'])
 def procesarTexto():
-    global letras
     if request.method == 'POST':
         letras = json.loads(request.data)
         if letras == "Procesa":
@@ -59,6 +61,25 @@ def envioProcesado():
     if request.method == 'GET':
         return json.dumps(var)
 
+#Metodo generar PDF
+@app.route('/generatePDF', methods=['POST'])
+def generexPDF():
+    if request.method == 'POST':
+        letras = json.loads(request.data)
+        if letras == "PDF":
+            tav = genePDF()
+            if tav == "Yep":
+                return jsonify({"status": 200})
+            else:
+                return jsonify({"status": 500})
+
+#Metodo probar mensaje
+@app.route('/probarMensaje', methods=['POST'])
+def pruebaM():
+    if request.method == 'POST':
+        letras = json.loads(request.data)
+        print(letras)
+        return jsonify({"status": 200})
 
 #Metodos propios en python para procesar todos los archivos de manera interna
 def msj(letras):
@@ -140,6 +161,7 @@ def msj(letras):
             msjSucio = msjSucio.replace("\t","")
             msjSucio = msjSucio.replace("  "," ")
             msjLimpio = msjSucio.replace("  "," ")#
+            msjLimpio = re.sub(r"""[:!?'".<>(){}@%&*/[/]""", " ", msjLimpio)
             msj = mensajito(lugar,fecha,hora,usuario,redSocial,msjLimpio)
             
             for empre in listaEmpresas:
@@ -197,6 +219,7 @@ def procesar():
     global listaMensaje
     global fechas
     global var
+    global letras
     var = '''<?xml version=\"1.0\"?>\n\t<lista_respuestas>\n'''
     for date in fechas:
         positivs = 0
@@ -281,6 +304,8 @@ def procesar():
             var = var + varDos
         var = var + f'''\t\t\t</analisis>\n\t\t</respuesta>\n'''
     var = var + f'''\t</lista_respuestas>'''
+
+    geneTXT(letras,var)
     return "Yep"
 
 def castear(texto):
@@ -296,6 +321,31 @@ def castear(texto):
     texto.replace("Ú","U")
     texto.lower()
     return texto
+
+def geneTXT(texto,textoDos):
+    f = open ('db.txt','a')
+    varUno = "Entrada: \n"+texto+"\n\n"
+    varDos = "Salida: \n"+textoDos+"\n\n"
+    vass = varUno+varDos
+    f.write(vass)
+    f.close()
+
+def genePDF():
+    fichero = open("db.txt","r")
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.set_font("Arial",'B',size=10)
+    line = 1
+
+    for linea in fichero:
+        pdf.cell(200,7,txt=linea,ln=line,align="L")
+        if linea[-1]==("\n"):
+            linea = linea[:-1]
+        line+=1
+    
+    pdf.output("REPORTE.pdf")
+    fichero.close()
+    return "Yep"
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True)

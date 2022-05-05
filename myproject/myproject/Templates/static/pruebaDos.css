@@ -1,10 +1,12 @@
 #ojala{
+    background: rgb(33, 199, 47);
+    text-align: center;
+    padding: 33px;
     border-radius: 22px;
     position:absolute;
-    left: 440px;
-    top: 120px;
-    z-index: 2;
-    display: none;
+    left: 400px;
+    top: 700px;
+    z-index: 3;
 }
 
 .ventana{

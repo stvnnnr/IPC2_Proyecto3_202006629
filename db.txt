@@ -1,0 +1,1258 @@
+Entrada: 
+<?xml version="1.0"?>
+<solicitud_clasificacion>
+ <diccionario>
+ <sentimientos_positivos>
+ <palabra> bueno </palabra>
+ <palabra> excelente </palabra>
+ <palabra> cool </palabra>
+ <palabra> satisfecho </palabra>
+ </sentimientos_positivos>
+ <sentimientos_negativos>
+ <palabra> malo </palabra>
+ <palabra> pésimo </palabra>
+ <palabra> triste </palabra>
+ <palabra> molesto </palabra>
+ <palabra> decepcionado </palabra>
+ <palabra> enojo </palabra>
+ </sentimientos_negativos>
+ <empresas_analizar>
+ <empresa>
+ <nombre> USAC </nombre>
+ <servicio nombre="inscripción">
+ <alias> inscribí </alias>
+ <alias> inscrito </alias>
+</servicio>
+<servicio nombre="asignación">
+ <alias> asignado </alias>
+ </servicio>
+ <servicio nombre="graduación"> </servicio>
+ </empresa>
+ </empresas_analizar>
+ </diccionario>
+ <lista_mensajes>
+ <mensaje>
+ Lugar y fecha: Guatemala, 01/05/2022 15:01 Usuario:
+ map0001@usac.edu Red social: Twitter
+ El servicio en la USAC para inscripción fue muy bueno y me siento muy satisfecho.
+ </mensaje>
+<mensaje>
+ Lugar y fecha: Guatemala,
+ 01/04/2022 15:20 Usuario: map0002@usac.edu Red social: Facebook Hoy me inscribí
+ en la USAC, no encontré parqueo e inicié molesto mi gestión, luego tuve que hacer
+ cola y me indicaron que era la cola incorrecta, esto me enojó mucho y mejor me
+ fui.
+ </mensaje>
+<mensaje>
+ Lugar y fecha: Guatemala, 01/04/2022 15:43 Usuario: map0003@usac.edu
+ Red social: WhatsApp
+ Ya estoy inscrito en la USAC, el proceso fue muy bueno, pero al salir,
+ mi carro tenía pinchadas las llantas, esto me preocupó
+ y me fui decepcionado
+ </mensaje>
+ </lista_mensajes>
+</solicitud_clasificacion>
+
+Salida: 
+<?xml version="1.0"?>
+	<lista_respuestas>
+		<respuesta>
+			<fecha>01/04/2022</fecha>
+			<mensajes>
+				<total> 2</total>
+					<positivos>0</positivos>
+					<negativos>1</negativos>
+					<neutros>1</neutros>
+				</mensajes>
+			<analisis>
+				<empresa nombre="USAC">
+					<mensajes>
+						<total>2</total>
+						<positivos>0</positivos>
+						<negativos>1</negativos>
+						<neutros>1</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="inscripción">
+						<mensajes>
+							<total>2</total>
+							<positivos>0</positivos>
+							<negativos>1</negativos>
+							<neutros>1</neutros>
+						</mensajes>
+						</servicio>
+						<servicio nombre="asignación">
+						<mensajes>
+							<total>0</total>
+							<positivos>0</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+						<servicio nombre="graduación">
+						<mensajes>
+							<total>0</total>
+							<positivos>0</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+			</analisis>
+		</respuesta>
+		<respuesta>
+			<fecha>01/05/2022</fecha>
+			<mensajes>
+				<total> 1</total>
+					<positivos>1</positivos>
+					<negativos>0</negativos>
+					<neutros>0</neutros>
+				</mensajes>
+			<analisis>
+				<empresa nombre="USAC">
+					<mensajes>
+						<total>1</total>
+						<positivos>1</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="inscripción">
+						<mensajes>
+							<total>1</total>
+							<positivos>1</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+						<servicio nombre="asignación">
+						<mensajes>
+							<total>0</total>
+							<positivos>0</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+						<servicio nombre="graduación">
+						<mensajes>
+							<total>0</total>
+							<positivos>0</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+			</analisis>
+		</respuesta>
+	</lista_respuestas>
+
+Entrada: 
+<?xml version="1.0"?>
+<solicitud_clasificacion>
+ <diccionario> 
+    <sentimientos_positivos> 
+        <palabra> buen </palabra>
+        <palabra> bien </palabra>
+        <palabra> agradado </palabra>
+        <palabra> deliciosas </palabra>
+        <palabra> baratas </palabra>
+        <palabra> ricas </palabra>
+        <palabra> barato </palabra>
+        <palabra> rápido </palabra>
+        <palabra> excelente </palabra>
+    </sentimientos_positivos>
+    <sentimientos_negativos> 
+        <palabra> terrible </palabra>
+        <palabra> mala </palabra>
+        <palabra> mal </palabra>
+        <palabra> caro </palabra>
+        <palabra> no </palabra>
+    </sentimientos_negativos>
+    <empresas_analizar> 
+        <empresa> 
+            <nombre> McDonals </nombre>
+            <servicio nombre="servicio"> 
+                <alias> sirvieron </alias>
+                <alias> servir </alias>
+                <alias> sirve </alias>
+            </servicio>            
+        </empresa>
+        <empresa> 
+            <nombre> Burguer  King </nombre>
+            <servicio nombre="Cobrar"> 
+                <alias> cobran </alias>
+            </servicio>
+        </empresa>
+        <empresa> 
+            <nombre> Carls Jr </nombre>
+            <servicio nombre="AtEnCiOn"> 
+                <alias> atender </alias>
+                <alias> atendieron </alias>
+                <alias> atienden </alias>
+            </servicio>
+        </empresa>
+    </empresas_analizar>
+ </diccionario>
+ <lista_mensajes>
+    <mensaje> 
+        Lugar y fecha: Guatemala, 24/04/2022 10:57 Usuario: 
+        Kitty_cat88 Red social: Instagram
+        Buen servicio por parte de McDonals, por primera vez me sentí agradado en el lugar a donde fuí, me
+        sirvieron de buena manera.
+    </mensaje>
+    <mensaje> 
+        Lugar y fecha: Estados Unidos, 
+        26/04/2022 13:15 
+        Usuario: Soyyo#2 
+        Red social: Facebook 
+        Las hambuguesas de Carls Jr son deliciosas,
+        pero si buscan algo más barato, les recomiendo Burguer King, allí las hamburguesas son baratas y ricas.
+    </mensaje>
+    <mensaje> 
+        Lugar y fecha: Mexico, 01/04/2022 15:43 Usuario: @chilero_123 
+        Red social: Twitter
+        Terrible servicio en Burguer King zona 6, mi comida ya estaba fría y me lleve una mala experiencia
+        además los cajeros cobran muy lento.
+    </mensaje>
+    <mensaje> 
+        Lugar y fecha: Guatemala, 01/04/2022 15:43 Usuario: carne_asada_25 
+        Red social: Facebook Me pidieron mi opinión sobre mi restaurante favorito: Pienso que McDonals sirve rápido y la comida esta bien.
+        Burguer King no me gusta para nada, creo que la comida es de mala calidad. Estas de acuerdo?
+    </mensaje>
+ </lista_mensajes>
+</solicitud_clasificacion>
+
+
+Salida: 
+<?xml version="1.0"?>
+	<lista_respuestas>
+		<respuesta>
+			<fecha>01/04/2022</fecha>
+			<mensajes>
+				<total> 2</total>
+					<positivos>0</positivos>
+					<negativos>2</negativos>
+					<neutros>0</neutros>
+				</mensajes>
+			<analisis>
+				<empresa nombre="McDonals">
+					<mensajes>
+						<total>1</total>
+						<positivos>0</positivos>
+						<negativos>1</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="servicio">
+						<mensajes>
+							<total>2</total>
+							<positivos>0</positivos>
+							<negativos>2</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+				<empresa nombre="Burguer  King">
+					<mensajes>
+						<total>0</total>
+						<positivos>0</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="Cobrar">
+						<mensajes>
+							<total>1</total>
+							<positivos>0</positivos>
+							<negativos>1</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+				<empresa nombre="Carls Jr">
+					<mensajes>
+						<total>0</total>
+						<positivos>0</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="AtEnCiOn">
+						<mensajes>
+							<total>0</total>
+							<positivos>0</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+			</analisis>
+		</respuesta>
+		<respuesta>
+			<fecha>24/04/2022</fecha>
+			<mensajes>
+				<total> 1</total>
+					<positivos>1</positivos>
+					<negativos>0</negativos>
+					<neutros>0</neutros>
+				</mensajes>
+			<analisis>
+				<empresa nombre="McDonals">
+					<mensajes>
+						<total>1</total>
+						<positivos>1</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="servicio">
+						<mensajes>
+							<total>2</total>
+							<positivos>2</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+				<empresa nombre="Burguer  King">
+					<mensajes>
+						<total>0</total>
+						<positivos>0</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="Cobrar">
+						<mensajes>
+							<total>0</total>
+							<positivos>0</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+				<empresa nombre="Carls Jr">
+					<mensajes>
+						<total>0</total>
+						<positivos>0</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="AtEnCiOn">
+						<mensajes>
+							<total>0</total>
+							<positivos>0</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+			</analisis>
+		</respuesta>
+		<respuesta>
+			<fecha>26/04/2022</fecha>
+			<mensajes>
+				<total> 1</total>
+					<positivos>1</positivos>
+					<negativos>0</negativos>
+					<neutros>0</neutros>
+				</mensajes>
+			<analisis>
+				<empresa nombre="McDonals">
+					<mensajes>
+						<total>0</total>
+						<positivos>0</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="servicio">
+						<mensajes>
+							<total>0</total>
+							<positivos>0</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+				<empresa nombre="Burguer  King">
+					<mensajes>
+						<total>0</total>
+						<positivos>0</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="Cobrar">
+						<mensajes>
+							<total>0</total>
+							<positivos>0</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+				<empresa nombre="Carls Jr">
+					<mensajes>
+						<total>1</total>
+						<positivos>1</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="AtEnCiOn">
+						<mensajes>
+							<total>0</total>
+							<positivos>0</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+			</analisis>
+		</respuesta>
+	</lista_respuestas>
+
+Entrada: 
+<?xml version="1.0"?>
+<solicitud_clasificacion>
+ <diccionario> 
+    <sentimientos_positivos> 
+        <palabra> buen </palabra>
+        <palabra> bien </palabra>
+        <palabra> agradado </palabra>
+        <palabra> deliciosas </palabra>
+        <palabra> baratas </palabra>
+        <palabra> ricas </palabra>
+        <palabra> barato </palabra>
+        <palabra> rápido </palabra>
+        <palabra> excelente </palabra>
+    </sentimientos_positivos>
+    <sentimientos_negativos> 
+        <palabra> terrible </palabra>
+        <palabra> mala </palabra>
+        <palabra> mal </palabra>
+        <palabra> caro </palabra>
+        <palabra> no </palabra>
+    </sentimientos_negativos>
+    <empresas_analizar> 
+        <empresa> 
+            <nombre> McDonals </nombre>
+            <servicio nombre="servicio"> 
+                <alias> sirvieron </alias>
+                <alias> servir </alias>
+                <alias> sirve </alias>
+            </servicio>            
+        </empresa>
+        <empresa> 
+            <nombre> Burguer  King </nombre>
+            <servicio nombre="Cobrar"> 
+                <alias> cobran </alias>
+            </servicio>
+        </empresa>
+        <empresa> 
+            <nombre> Carls Jr </nombre>
+            <servicio nombre="AtEnCiOn"> 
+                <alias> atender </alias>
+                <alias> atendieron </alias>
+                <alias> atienden </alias>
+            </servicio>
+        </empresa>
+    </empresas_analizar>
+ </diccionario>
+ <lista_mensajes>
+    <mensaje> 
+        Lugar y fecha: Guatemala, 24/04/2022 10:57 Usuario: 
+        Kitty_cat88 Red social: Instagram
+        Buen servicio por parte de McDonals, por primera vez me sentí agradado en el lugar a donde fuí, me
+        sirvieron de buena manera.
+    </mensaje>
+    <mensaje> 
+        Lugar y fecha: Estados Unidos, 
+        26/04/2022 13:15 
+        Usuario: Soyyo#2 
+        Red social: Facebook 
+        Las hambuguesas de Carls Jr son deliciosas,
+        pero si buscan algo más barato, les recomiendo Burguer King, allí las hamburguesas son baratas y ricas.
+    </mensaje>
+    <mensaje> 
+        Lugar y fecha: Mexico, 01/04/2022 15:43 Usuario: @chilero_123 
+        Red social: Twitter
+        Terrible servicio en Burguer King zona 6, mi comida ya estaba fría y me lleve una mala experiencia
+        además los cajeros cobran muy lento.
+    </mensaje>
+    <mensaje> 
+        Lugar y fecha: Guatemala, 01/04/2022 15:43 Usuario: carne_asada_25 
+        Red social: Facebook Me pidieron mi opinión sobre mi restaurante favorito: Pienso que McDonals sirve rápido y la comida esta bien.
+        Burguer King no me gusta para nada, creo que la comida es de mala calidad. Estas de acuerdo?
+    </mensaje>
+ </lista_mensajes>
+</solicitud_clasificacion>
+
+
+Salida: 
+<?xml version="1.0"?>
+	<lista_respuestas>
+		<respuesta>
+			<fecha>01/04/2022</fecha>
+			<mensajes>
+				<total> 2</total>
+					<positivos>0</positivos>
+					<negativos>2</negativos>
+					<neutros>0</neutros>
+				</mensajes>
+			<analisis>
+				<empresa nombre="Carls Jr">
+					<mensajes>
+						<total>0</total>
+						<positivos>0</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="AtEnCiOn">
+						<mensajes>
+							<total>0</total>
+							<positivos>0</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+				<empresa nombre="McDonals">
+					<mensajes>
+						<total>1</total>
+						<positivos>0</positivos>
+						<negativos>1</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="servicio">
+						<mensajes>
+							<total>2</total>
+							<positivos>0</positivos>
+							<negativos>2</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+				<empresa nombre="Burguer  King">
+					<mensajes>
+						<total>0</total>
+						<positivos>0</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="Cobrar">
+						<mensajes>
+							<total>1</total>
+							<positivos>0</positivos>
+							<negativos>1</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+			</analisis>
+		</respuesta>
+		<respuesta>
+			<fecha>24/04/2022</fecha>
+			<mensajes>
+				<total> 1</total>
+					<positivos>1</positivos>
+					<negativos>0</negativos>
+					<neutros>0</neutros>
+				</mensajes>
+			<analisis>
+				<empresa nombre="Carls Jr">
+					<mensajes>
+						<total>0</total>
+						<positivos>0</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="AtEnCiOn">
+						<mensajes>
+							<total>0</total>
+							<positivos>0</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+				<empresa nombre="McDonals">
+					<mensajes>
+						<total>1</total>
+						<positivos>1</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="servicio">
+						<mensajes>
+							<total>2</total>
+							<positivos>2</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+				<empresa nombre="Burguer  King">
+					<mensajes>
+						<total>0</total>
+						<positivos>0</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="Cobrar">
+						<mensajes>
+							<total>0</total>
+							<positivos>0</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+			</analisis>
+		</respuesta>
+		<respuesta>
+			<fecha>26/04/2022</fecha>
+			<mensajes>
+				<total> 1</total>
+					<positivos>1</positivos>
+					<negativos>0</negativos>
+					<neutros>0</neutros>
+				</mensajes>
+			<analisis>
+				<empresa nombre="Carls Jr">
+					<mensajes>
+						<total>1</total>
+						<positivos>1</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="AtEnCiOn">
+						<mensajes>
+							<total>0</total>
+							<positivos>0</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+				<empresa nombre="McDonals">
+					<mensajes>
+						<total>0</total>
+						<positivos>0</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="servicio">
+						<mensajes>
+							<total>0</total>
+							<positivos>0</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+				<empresa nombre="Burguer  King">
+					<mensajes>
+						<total>0</total>
+						<positivos>0</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="Cobrar">
+						<mensajes>
+							<total>0</total>
+							<positivos>0</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+			</analisis>
+		</respuesta>
+	</lista_respuestas>
+
+Entrada: 
+<?xml version="1.0"?>
+<solicitud_clasificacion>
+ <diccionario> 
+    <sentimientos_positivos> 
+        <palabra> buen </palabra>
+        <palabra> bien </palabra>
+        <palabra> agradado </palabra>
+        <palabra> deliciosas </palabra>
+        <palabra> baratas </palabra>
+        <palabra> ricas </palabra>
+        <palabra> barato </palabra>
+        <palabra> rápido </palabra>
+        <palabra> excelente </palabra>
+    </sentimientos_positivos>
+    <sentimientos_negativos> 
+        <palabra> terrible </palabra>
+        <palabra> mala </palabra>
+        <palabra> mal </palabra>
+        <palabra> caro </palabra>
+        <palabra> no </palabra>
+    </sentimientos_negativos>
+    <empresas_analizar> 
+        <empresa> 
+            <nombre> McDonals </nombre>
+            <servicio nombre="servicio"> 
+                <alias> sirvieron </alias>
+                <alias> servir </alias>
+                <alias> sirve </alias>
+            </servicio>            
+        </empresa>
+        <empresa> 
+            <nombre> Burguer  King </nombre>
+            <servicio nombre="Cobrar"> 
+                <alias> cobran </alias>
+            </servicio>
+        </empresa>
+        <empresa> 
+            <nombre> Carls Jr </nombre>
+            <servicio nombre="AtEnCiOn"> 
+                <alias> atender </alias>
+                <alias> atendieron </alias>
+                <alias> atienden </alias>
+            </servicio>
+        </empresa>
+    </empresas_analizar>
+ </diccionario>
+ <lista_mensajes>
+    <mensaje> 
+        Lugar y fecha: Guatemala, 24/04/2022 10:57 Usuario: 
+        Kitty_cat88 Red social: Instagram
+        Buen servicio por parte de McDonals, por primera vez me sentí agradado en el lugar a donde fuí, me
+        sirvieron de buena manera.
+    </mensaje>
+    <mensaje> 
+        Lugar y fecha: Estados Unidos, 
+        26/04/2022 13:15 
+        Usuario: Soyyo#2 
+        Red social: Facebook 
+        Las hambuguesas de Carls Jr son deliciosas,
+        pero si buscan algo más barato, les recomiendo Burguer King, allí las hamburguesas son baratas y ricas.
+    </mensaje>
+    <mensaje> 
+        Lugar y fecha: Mexico, 01/04/2022 15:43 Usuario: @chilero_123 
+        Red social: Twitter
+        Terrible servicio en Burguer King zona 6, mi comida ya estaba fría y me lleve una mala experiencia
+        además los cajeros cobran muy lento.
+    </mensaje>
+    <mensaje> 
+        Lugar y fecha: Guatemala, 01/04/2022 15:43 Usuario: carne_asada_25 
+        Red social: Facebook Me pidieron mi opinión sobre mi restaurante favorito: Pienso que McDonals sirve rápido y la comida esta bien.
+        Burguer King no me gusta para nada, creo que la comida es de mala calidad. Estas de acuerdo?
+    </mensaje>
+ </lista_mensajes>
+</solicitud_clasificacion>
+
+
+Salida: 
+<?xml version="1.0"?>
+	<lista_respuestas>
+		<respuesta>
+			<fecha>01/04/2022</fecha>
+			<mensajes>
+				<total> 2</total>
+					<positivos>0</positivos>
+					<negativos>2</negativos>
+					<neutros>0</neutros>
+				</mensajes>
+			<analisis>
+				<empresa nombre="Carls Jr">
+					<mensajes>
+						<total>0</total>
+						<positivos>0</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="AtEnCiOn">
+						<mensajes>
+							<total>0</total>
+							<positivos>0</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+				<empresa nombre="McDonals">
+					<mensajes>
+						<total>1</total>
+						<positivos>0</positivos>
+						<negativos>1</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="servicio">
+						<mensajes>
+							<total>2</total>
+							<positivos>0</positivos>
+							<negativos>2</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+				<empresa nombre="Burguer  King">
+					<mensajes>
+						<total>0</total>
+						<positivos>0</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="Cobrar">
+						<mensajes>
+							<total>1</total>
+							<positivos>0</positivos>
+							<negativos>1</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+			</analisis>
+		</respuesta>
+		<respuesta>
+			<fecha>24/04/2022</fecha>
+			<mensajes>
+				<total> 1</total>
+					<positivos>1</positivos>
+					<negativos>0</negativos>
+					<neutros>0</neutros>
+				</mensajes>
+			<analisis>
+				<empresa nombre="Carls Jr">
+					<mensajes>
+						<total>0</total>
+						<positivos>0</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="AtEnCiOn">
+						<mensajes>
+							<total>0</total>
+							<positivos>0</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+				<empresa nombre="McDonals">
+					<mensajes>
+						<total>1</total>
+						<positivos>1</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="servicio">
+						<mensajes>
+							<total>2</total>
+							<positivos>2</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+				<empresa nombre="Burguer  King">
+					<mensajes>
+						<total>0</total>
+						<positivos>0</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="Cobrar">
+						<mensajes>
+							<total>0</total>
+							<positivos>0</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+			</analisis>
+		</respuesta>
+		<respuesta>
+			<fecha>26/04/2022</fecha>
+			<mensajes>
+				<total> 1</total>
+					<positivos>1</positivos>
+					<negativos>0</negativos>
+					<neutros>0</neutros>
+				</mensajes>
+			<analisis>
+				<empresa nombre="Carls Jr">
+					<mensajes>
+						<total>1</total>
+						<positivos>1</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="AtEnCiOn">
+						<mensajes>
+							<total>0</total>
+							<positivos>0</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+				<empresa nombre="McDonals">
+					<mensajes>
+						<total>0</total>
+						<positivos>0</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="servicio">
+						<mensajes>
+							<total>0</total>
+							<positivos>0</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+				<empresa nombre="Burguer  King">
+					<mensajes>
+						<total>0</total>
+						<positivos>0</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="Cobrar">
+						<mensajes>
+							<total>0</total>
+							<positivos>0</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+			</analisis>
+		</respuesta>
+	</lista_respuestas>
+
+Entrada: 
+<?xml version="1.0"?>
+<solicitud_clasificacion>
+ <diccionario> 
+    <sentimientos_positivos> 
+        <palabra> buen </palabra>
+        <palabra> bien </palabra>
+        <palabra> agradado </palabra>
+        <palabra> deliciosas </palabra>
+        <palabra> baratas </palabra>
+        <palabra> ricas </palabra>
+        <palabra> barato </palabra>
+        <palabra> rápido </palabra>
+        <palabra> excelente </palabra>
+    </sentimientos_positivos>
+    <sentimientos_negativos> 
+        <palabra> terrible </palabra>
+        <palabra> mala </palabra>
+        <palabra> mal </palabra>
+        <palabra> caro </palabra>
+        <palabra> no </palabra>
+    </sentimientos_negativos>
+    <empresas_analizar> 
+        <empresa> 
+            <nombre> McDonals </nombre>
+            <servicio nombre="servicio"> 
+                <alias> sirvieron </alias>
+                <alias> servir </alias>
+                <alias> sirve </alias>
+            </servicio>            
+        </empresa>
+        <empresa> 
+            <nombre> Burguer  King </nombre>
+            <servicio nombre="Cobrar"> 
+                <alias> cobran </alias>
+            </servicio>
+        </empresa>
+        <empresa> 
+            <nombre> Carls Jr </nombre>
+            <servicio nombre="AtEnCiOn"> 
+                <alias> atender </alias>
+                <alias> atendieron </alias>
+                <alias> atienden </alias>
+            </servicio>
+        </empresa>
+    </empresas_analizar>
+ </diccionario>
+ <lista_mensajes>
+    <mensaje> 
+        Lugar y fecha: Guatemala, 24/04/2022 10:57 Usuario: 
+        Kitty_cat88 Red social: Instagram
+        Buen servicio por parte de McDonals, por primera vez me sentí agradado en el lugar a donde fuí, me
+        sirvieron de buena manera.
+    </mensaje>
+    <mensaje> 
+        Lugar y fecha: Estados Unidos, 
+        26/04/2022 13:15 
+        Usuario: Soyyo#2 
+        Red social: Facebook 
+        Las hambuguesas de Carls Jr son deliciosas,
+        pero si buscan algo más barato, les recomiendo Burguer King, allí las hamburguesas son baratas y ricas.
+    </mensaje>
+    <mensaje> 
+        Lugar y fecha: Mexico, 01/04/2022 15:43 Usuario: @chilero_123 
+        Red social: Twitter
+        Terrible servicio en Burguer King zona 6, mi comida ya estaba fría y me lleve una mala experiencia
+        además los cajeros cobran muy lento.
+    </mensaje>
+    <mensaje> 
+        Lugar y fecha: Guatemala, 01/04/2022 15:43 Usuario: carne_asada_25 
+        Red social: Facebook Me pidieron mi opinión sobre mi restaurante favorito: Pienso que McDonals sirve rápido y la comida esta bien.
+        Burguer King no me gusta para nada, creo que la comida es de mala calidad. Estas de acuerdo?
+    </mensaje>
+ </lista_mensajes>
+</solicitud_clasificacion>
+
+
+Salida: 
+<?xml version="1.0"?>
+	<lista_respuestas>
+		<respuesta>
+			<fecha>01/04/2022</fecha>
+			<mensajes>
+				<total> 2</total>
+					<positivos>0</positivos>
+					<negativos>2</negativos>
+					<neutros>0</neutros>
+				</mensajes>
+			<analisis>
+				<empresa nombre="Carls Jr">
+					<mensajes>
+						<total>0</total>
+						<positivos>0</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="AtEnCiOn">
+						<mensajes>
+							<total>0</total>
+							<positivos>0</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+				<empresa nombre="Burguer  King">
+					<mensajes>
+						<total>0</total>
+						<positivos>0</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="Cobrar">
+						<mensajes>
+							<total>1</total>
+							<positivos>0</positivos>
+							<negativos>1</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+				<empresa nombre="McDonals">
+					<mensajes>
+						<total>1</total>
+						<positivos>0</positivos>
+						<negativos>1</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="servicio">
+						<mensajes>
+							<total>2</total>
+							<positivos>0</positivos>
+							<negativos>2</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+			</analisis>
+		</respuesta>
+		<respuesta>
+			<fecha>24/04/2022</fecha>
+			<mensajes>
+				<total> 1</total>
+					<positivos>1</positivos>
+					<negativos>0</negativos>
+					<neutros>0</neutros>
+				</mensajes>
+			<analisis>
+				<empresa nombre="Carls Jr">
+					<mensajes>
+						<total>0</total>
+						<positivos>0</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="AtEnCiOn">
+						<mensajes>
+							<total>0</total>
+							<positivos>0</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+				<empresa nombre="Burguer  King">
+					<mensajes>
+						<total>0</total>
+						<positivos>0</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="Cobrar">
+						<mensajes>
+							<total>0</total>
+							<positivos>0</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+				<empresa nombre="McDonals">
+					<mensajes>
+						<total>1</total>
+						<positivos>1</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="servicio">
+						<mensajes>
+							<total>2</total>
+							<positivos>2</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+			</analisis>
+		</respuesta>
+		<respuesta>
+			<fecha>26/04/2022</fecha>
+			<mensajes>
+				<total> 1</total>
+					<positivos>1</positivos>
+					<negativos>0</negativos>
+					<neutros>0</neutros>
+				</mensajes>
+			<analisis>
+				<empresa nombre="Carls Jr">
+					<mensajes>
+						<total>1</total>
+						<positivos>1</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="AtEnCiOn">
+						<mensajes>
+							<total>0</total>
+							<positivos>0</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+				<empresa nombre="Burguer  King">
+					<mensajes>
+						<total>0</total>
+						<positivos>0</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="Cobrar">
+						<mensajes>
+							<total>0</total>
+							<positivos>0</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+				<empresa nombre="McDonals">
+					<mensajes>
+						<total>0</total>
+						<positivos>0</positivos>
+						<negativos>0</negativos>
+						<neutros>0</neutros>
+					</mensajes>
+					<servicios>
+						<servicio nombre="servicio">
+						<mensajes>
+							<total>0</total>
+							<positivos>0</positivos>
+							<negativos>0</negativos>
+							<neutros>0</neutros>
+						</mensajes>
+						</servicio>
+					</servicios>
+				</empresa>
+			</analisis>
+		</respuesta>
+	</lista_respuestas>
+

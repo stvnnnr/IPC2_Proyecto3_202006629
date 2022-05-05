@@ -10,7 +10,8 @@
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css" rel="stylesheet">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Alice|Open+Sans:400,300,700">
-    <link rel="stylesheet" href="{% static '/prueba.css' %}">
+    <link rel="stylesheet" href="{% static 'pruebaDos.css' %}">
+    
 </head>
 
 <body class="home">
@@ -40,10 +41,10 @@
                                 <li><button type="button" class="button button1" id="btnClasiFecha">Resumen
                                         clasificación por
                                         fecha</button></li>
-                                <li><button type="button" class="button button1" id="btnClasiRango">Resumen por rango de
+                                <li><button type="button" class="button button1" id="btnClasiRango" onclick="getDoctores()">Resumen por rango de
                                         fechas</button>
                                 </li>
-                                <li><button type="button" class="button button1" id="btnPdf">Reporte en PDF</button>
+                                <li><button type="button" class="button button1" id="btnPdf" onclick="generaPDF()">Reporte en PDF</button>
                                 </li>
                                 <li><button type="button" class="button button1" id="btnPrueba">Pruebar de
                                         mensaje</button></li>
@@ -82,8 +83,7 @@
         </div>
     </div>
 
-
-    <div class="container">
+    <div id="Uno"  class="container">
         <div class="container">
             <div class="row section featured topspace">
                 <div class="container">
@@ -143,10 +143,10 @@
         function pulsar() {alert("Se Reinicio")
                             document.getElementById('textAreaUno').value = "";
                             document.getElementById('textAreaDos').value = ""; }</script>
+
     <script src="{% static '/carga.js' %}"></script>
     <script src="{% static '/envio.js' %}"></script>
-    <script src="{% static '/peticiones.js' %}"></script>
-    
+    <script src="{% static '/peti.js' %}"></script>
 
 
 </body>
