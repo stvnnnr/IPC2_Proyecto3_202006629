@@ -56,7 +56,7 @@
                                 <li><button type="button" class="button button1" id="btnInfo">Información del
                                         estudiante</button>
                                 </li>
-                                <li><button type="button" class="button button1" id="btnDocu">Documentación</button>
+                                <li><button type="button" class="button button1" id="btnDocu" onclick="getDocu()">Documentación</button>
                                 </li>
                             </ul>
                         </li>
@@ -143,6 +143,9 @@
         function pulsar() {alert("Se Reinicio")
                             document.getElementById('textAreaUno').value = "";
                             document.getElementById('textAreaDos').value = ""; }</script>
+    <!-- <script>document.getElementById('btnDocu').addEventListener("click", pulsar, false);
+        function pulsar() {window.open("DOcumentacion.pdf","_blank");
+        }</script> -->
 
     <script src="{% static '/carga.js' %}"></script>
     <script src="{% static '/envio.js' %}"></script>

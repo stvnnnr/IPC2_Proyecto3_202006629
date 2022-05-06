@@ -17,7 +17,10 @@ function procesar() {
         })
         .catch(function (error) { console.log(error); });
 }
-
+function getDocu() {
+    alert("jjjj")
+    window.open("DOcumentacion.pdf","_blank");
+}
 function getProcesado() {
     fetch("http://localhost:5000/procesado", {
         method: "GET",

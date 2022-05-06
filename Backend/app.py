@@ -37,6 +37,17 @@ def cargaArchivo():
         else:
             return jsonify({"status": 500})
 
+@app.route('/cargaPostman', methods=['POST'])
+def cargaArchivoPost():
+    global letras
+    if request.method == 'POST':
+        letras = request.data.decode('utf-8')
+        tav =msj(letras)
+        if tav == "Yep":
+            return jsonify({"status": 200})
+        else:
+            return jsonify({"status": 500})
+
 @app.route('/carga', methods=['GET'])
 def envioInfo():
     global letras
@@ -48,6 +59,17 @@ def envioInfo():
 def procesarTexto():
     if request.method == 'POST':
         letras = json.loads(request.data)
+        if letras == "Procesa":
+            tav = procesar()
+            if tav == "Yep":
+                return jsonify({"status": 200})
+            else:
+                return jsonify({"status": 500})
+
+@app.route('/procesarPostman', methods=['POST'])
+def procesarTextoPost():
+    if request.method == 'POST':
+        letras = request.data.decode('utf-8')
         if letras == "Procesa":
             tav = procesar()
             if tav == "Yep":
@@ -68,6 +90,17 @@ def generexPDF():
         letras = json.loads(request.data)
         if letras == "PDF":
             tav = genePDF()
+            if tav == "Yep":
+                return jsonify({"status": 200})
+            else:
+                return jsonify({"status": 500})
+
+@app.route('/generatePDFPostman', methods=['POST'])
+def pdfPost():
+    if request.method == 'POST':
+        letras = request.data.decode('utf-8')
+        if letras == "PDF":
+            tav = procesar()
             if tav == "Yep":
                 return jsonify({"status": 200})
             else:
